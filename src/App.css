@@ -1,0 +1,48 @@
+.app{
+  color: rgb(255, 187, 0);
+}
+
+.imageHover{
+  transition: all 0.5s;
+}
+.imageHover:hover{
+  scale: 1.2;
+}
+
+.cardHover{
+  transition: all 0.3s;
+}
+
+.cardHover:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  margin-top: 7px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  text-align: start;
+}
+
+.dropdown-content a {
+  margin-top: 10px;
+  color: black;
+  padding: 2px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
