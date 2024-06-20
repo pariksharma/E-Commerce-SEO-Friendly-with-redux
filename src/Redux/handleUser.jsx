@@ -9,10 +9,7 @@ export const UserSlice = createSlice({
     initialState,
     reducers : {
         AddUser: (state, action) => {
-            // console.log("done")
-            // const user = {
-            //     value: action.payload
-            // }
+            localStorage.setItem('users', JSON.stringify(action.payload));
             state.users = action.payload;
         }
     }

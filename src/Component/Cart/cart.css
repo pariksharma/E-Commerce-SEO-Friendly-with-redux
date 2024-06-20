@@ -1,0 +1,20 @@
+.imgClass {
+    height : 200px ;
+    width : 180px;
+}
+
+.cardClass {
+    justify-content: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .cardClass{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .imgClass{
+        height : 100px ;
+        width : 90px;
+    }
+}

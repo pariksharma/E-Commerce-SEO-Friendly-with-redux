@@ -4,9 +4,11 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { AddUser } from '../Redux/handleUser';
+import { AddUser } from '../../Redux/handleUser';
 import { useDispatch, useSelector } from 'react-redux';
-import ModalOpen from './Modal';
+import ModalOpen from '../../Containers/Modal/Modal';
+import { imgUrl, successLogo } from '../../assets/imageUrl';
+import { validationRegister } from '../../utils/validation';
 
 function AppRegister() {
 
@@ -19,42 +21,27 @@ function AppRegister() {
     const [phone, setPhone] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
-
     const [userData, setUserData] = useState([])
 
     let CountryCode = 'in';
-
+    
     const handleRegister = (e) => {
         e.preventDefault();
-        if(!name || !email || !phone || !password || !confirmPassword) {
-            console.log("sadad");
-            toast.error("Fill the all inputs!");
+        const status = validationRegister(name, email, phone, password, confirmPassword, CountryCode);
+        if(status === "success") {
+            setUserData({name: name, email: email, country: CountryCode, countryCode: phone.substring(0, 2), phone: phone.substring(2, phone.length),  password: password});
+            CountryCode = 'in';
+            // console.log("h");
+            setModalShow(true);
         }
         else{
-            if(password !== confirmPassword){
-                toast.error("Password and Confirm Password not matched!");
-            }
-
-            else if(CountryCode === "in" && phone.length !== 12){
-                toast.error("Enter the valid phone number!");
-            } 
-            else if((/\S+@\S+\.\S+/).test(email) === false){
-                toast.error("Enter the valid email address!");
-            }
-
-            else{
-                setUserData({name: name, email: email, country: CountryCode, countryCode: phone.substring(0, 2), phone: phone.substring(2, phone.length),  password: password});
-                CountryCode = 'in';
-                console.log("h")
-                setModalShow(true)
-            }   
+            toast.error(status)
         }
     }
 
     const navigate = useNavigate();
 
     const handleConfirmRegister = () => {
-        
         toast.success("Registration Successful!")
         setModalShow(false);
         setName("")
@@ -84,7 +71,7 @@ function AppRegister() {
                 <Card>
                     <Row className='py-5'>
                         <Col md={6}>
-                            <Card.Img variant='top' height={500} width={300} src='https://img.freepik.com/free-vector/status-update-concept-illustration_114360-4484.jpg?size=626&ext=jpg&ga=GA1.1.1854687927.1708508513&semt=ais'></Card.Img>
+                            <Card.Img variant='top' height={500} width={300} src={imgUrl}></Card.Img>
                         </Col>
                         <Col md={6}>
                             <div >
@@ -118,7 +105,7 @@ function AppRegister() {
                 : 
                 <div className='container my-5'>
                     <div className='d-flex flex-column align-items-center'>
-                        <img className='w-25' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTssSCkBdAD8Mpgu_xyjZK_JxaHIGJnweDUdg&usqp=CAU' />
+                        <img className='w-25' src={successLogo} />
                         <h2 className='text-center'>You Successfully Registered!</h2>
                         <NavLink to='/' className='btn btn-outline-dark my-4'>Go to Home</NavLink>
                     </div>    

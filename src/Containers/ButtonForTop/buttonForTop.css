@@ -1,0 +1,10 @@
+.btnTop{
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+}
+
+.btnTop .btnFixed{
+    position: fixed;
+    background-color: rgb(254, 192, 48);
+}
