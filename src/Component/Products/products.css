@@ -1,0 +1,13 @@
+
+.prod-img{
+    height: 250px;
+}
+
+/* @media only screen and (max-width: 1200px) {
+    .prod-cont{
+        height: 300px;
+    }
+    .prod-img{
+        height: 150px;
+    }
+} */

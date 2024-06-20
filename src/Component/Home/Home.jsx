@@ -4,6 +4,7 @@ import AppProducts from '../Products/Products';
 import { Helmet } from 'react-helmet'; 
 import ButtonForTop from '../../Containers/ButtonForTop/ButtonForTop'; 
 import { backgroundImage } from '../../assets/imageUrl';
+import './home.css'
 
 function AppHome() {
     const [scrollUp, setScrollUp] = useState(false);
@@ -48,11 +49,11 @@ function AppHome() {
 
             {/* Card component with background image and overlay */}
             <Card className="bg-white text-white border-0">
-                <Card.Img src={backgroundImage} height="550px" alt="Card image" />
+                <Card.Img src={backgroundImage} className='ImageCon' alt="Card image" />
                 <Card.ImgOverlay className='d-flex justify-content-end'>
-                    <div className="container d-flex flex-column justify-content-center align-items-end text-black">
-                        <Card.Title className='display-3 fw-bolder mb-0'>New Season Arrival</Card.Title>
-                        <Card.Text className='lead fs-2'>CHECK OUT ALL NEW TRENDS</Card.Text>
+                    <div className="container Sale-cont">
+                        <Card.Title className='display-3 fw-bolder mb-0 season'>New Season Arrival</Card.Title>
+                        <Card.Text className='lead sub-head'>CHECK OUT ALL NEW TRENDS</Card.Text>
                     </div>
                 </Card.ImgOverlay>
             </Card>

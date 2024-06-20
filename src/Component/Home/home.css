@@ -1,0 +1,58 @@
+.ImageCon{
+    height: 550px
+}
+
+
+.Sale-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    color: black;
+}
+
+.Sale-cont .sub-head {
+    font-size: 2em;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .Sale-cont .season{
+        font-size: 3em;
+    }
+    .Sale-cont .sub-head{
+        font-size: 1.8em;
+    }
+} 
+
+@media only screen and (max-width: 770px) {
+    .ImageCon{
+        height: 450px;
+    }
+    .Sale-cont .season{
+        font-size: 2.2em;
+    }
+    .Sale-cont .sub-head{
+        font-size: 1.2em;
+    }
+} 
+
+
+@media only screen and (max-width: 570px) {
+    .ImageCon{
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .ImageCon{
+        height: 350px;
+    }
+    .season{
+        width: 55%;
+    }
+
+    .sub-head{
+        width: 55%;
+    }
+}

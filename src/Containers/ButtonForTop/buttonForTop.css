@@ -8,3 +8,12 @@
     position: fixed;
     background-color: rgb(254, 192, 48);
 }
+
+
+
+@media only screen and (max-width: 500px) {
+    .btnTop {
+        right: 50px;
+        bottom: 50px;
+    }
+}

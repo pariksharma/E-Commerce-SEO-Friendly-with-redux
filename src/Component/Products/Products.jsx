@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Skeleton from 'react-loading-skeleton';
 import { NavLink } from 'react-router-dom';
 import { getProductsList } from '../../services/api';
+import './products.css'
 
 function AppProducts() {
     const [state, setState] = useState({ data: [], filter: [], loading: true });
@@ -55,9 +56,9 @@ function AppProducts() {
                 <button className='btn btn-outline-dark me-1' onClick={() => filterProduct("electronics")}>Electronic</button>
             </div>
             {state.filter.map((product) => (
-                <Col key={product.id} md={3} className='mb-4'>
+                <Col key={product.id} md={3} className='mb-4 prod-cont'>
                     <Card className='h-100 text-center p-4 cardHover'>
-                        <Card.Img variant="top" src={product.image} alt={product.title} height="250px" />
+                        <Card.Img variant="top" className='prod-img' src={product.image} alt={product.title} />
                         <Card.Body>
                             <Card.Title className='mb-0'>{product.title.substring(0, 12)}</Card.Title>
                             <Card.Text className='lead fw-bold'>${product.price}</Card.Text>
