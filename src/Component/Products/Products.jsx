@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Skeleton from 'react-loading-skeleton';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { getProductsList } from '../../services/api';
 import './products.css'
 
@@ -62,7 +62,7 @@ function AppProducts() {
                         <Card.Body>
                             <Card.Title className='mb-0'>{product.title.substring(0, 12)}</Card.Title>
                             <Card.Text className='lead fw-bold'>${product.price}</Card.Text>
-                            <NavLink to={`/products/${product.id}`} className="btn btn-outline-dark">Buy Now</NavLink>
+                            <Link to={`/products/item?val=${product.id}`} className="btn btn-outline-dark">Buy Now</Link>
                         </Card.Body>
                     </Card>
                 </Col>

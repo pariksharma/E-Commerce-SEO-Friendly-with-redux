@@ -56,7 +56,7 @@ const RoutePage = () => {
             <Route exact path='/about' element={<AppAbout />} />
             <Route exact path='/contact' element={<AppContact />} />
             {/* Fallback Route */}
-            <Route path="*" element={<NoPageFound />} />
+            {/* <Route path="*" element={<NoPageFound />} /> */}
         </Routes>
     </>
   )

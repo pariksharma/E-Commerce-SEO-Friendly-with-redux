@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useLocation, useParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { useDispatch, useSelector } from 'react-redux';
 import { ADDItem } from '../../Redux/handleCart';
@@ -8,10 +8,17 @@ import { ToastContainer, toast } from 'react-toastify';
 import { nanoid } from '@reduxjs/toolkit';
 import { Helmet } from 'react-helmet';
 import { getProductsById } from '../../services/api';
+import NoPageFound from '../NoPageFound/NoPageFound';
 
 function AppProductItem() {
   // Extracting product ID from URL parameters
-  const { id } = useParams();
+  // let { id } = useParams();
+  // id = id.slice(id.indexOf('=')+1, id.length)
+  // console.log("id 15", id)
+
+  const { search } = useLocation();
+  const val = new URLSearchParams(search)
+  const id = val.get("val");
 
   const [state, setState] = useState({ product: {}, loading: true });
 
@@ -76,6 +83,7 @@ function AppProductItem() {
     const { product } = state;
     return (
       <>
+      {product.id ? <>
         <Col className='my-5' md={6}>
           <img
             style={{ overflow: "hidden", transition: "transform 0.3s" }}
@@ -106,6 +114,9 @@ function AppProductItem() {
             View Cart
           </NavLink>
         </Col>
+        </>
+        : 
+        <NoPageFound />}
       </>
     );
   };
@@ -116,6 +127,7 @@ function AppProductItem() {
       <Container className='py-5'>
         <Row className='py-5'>
           {state.loading ? <Loading /> : <ShowProductItem />}
+          {/* <p>Hello</p> */}
         </Row>
       </Container>
     </div>
